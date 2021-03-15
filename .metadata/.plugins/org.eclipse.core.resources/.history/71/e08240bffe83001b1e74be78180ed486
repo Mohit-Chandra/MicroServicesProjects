@@ -1,0 +1,17 @@
+package com.commons.model;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table(name="Vehicle")
+@Getter
+public class Vehicle {
+	
+	
+	int id;
+	String make;
+	String model;
+	String type;
+	int year;
+
+}

@@ -1,0 +1,45 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'maven-publish'
+	id 'maven'
+}
+
+group = 'com.mohit.Commons'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+}
+
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			groupId = 'com.mohit.Commons'
+			artifactId = 'library'
+			version = '1.1'
+
+		}
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jar {
+	from sourceSets.main.allSource
+	enabled = true
+}
